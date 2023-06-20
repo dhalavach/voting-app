@@ -1,10 +1,11 @@
 const PORT = 7481;
+const IP_DIGITAL_OCEAN = '165.22.73.91';
 
 class VotingBlock {
   constructor(root, title) {
     this.root = root;
     this.selected = sessionStorage.getItem('selected');
-    this.endpoint = `http://localhost:${PORT}/vote`;
+    this.endpoint = `http://${IP_DIGITAL_OCEAN}:${PORT}/vote`;
     this.root.insertAdjacentHTML(
       'afterbegin',
       `<div class = voting-block__title>${title}</div>`
