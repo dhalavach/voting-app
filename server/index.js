@@ -4,6 +4,7 @@ const path = require('path');
 
 const app = express();
 const dataFile = path.join(__dirname, 'data.json');
+const PORT = 7481;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,7 +24,6 @@ app.get('/variants', async (req, res) => {
 app.get('/stat', async (req, res) => {
   const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
   res.send(JSON.stringify(data));
-
   res.end();
 });
 
@@ -54,4 +54,4 @@ app.post('/vote', async (req, res) => {
   res.end();
 });
 
-app.listen(7480, () => console.log('server running...'));
+app.listen(PORT, () => console.log(`server running on port ${PORT} ...`));
