@@ -27,12 +27,12 @@ app.get('/stat', async (req, res) => {
   res.end();
 });
 
-app.get('/main', async (req, res) => {
-  const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
-  res.sendFile(path.join(__dirname, 'index.html'));
+// app.get('/main', async (req, res) => {
+//   //const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
+//   res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+// });
 
-  res.end();
-});
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 app.get('/vote', async (req, res) => {
   const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));

@@ -2,7 +2,7 @@ class VotingBlock {
   constructor(root, title) {
     this.root = root;
     this.selected = sessionStorage.getItem('selected');
-    this.endpoint = 'http://localhost:3000/vote';
+    this.endpoint = 'http://localhost:7480/vote';
     this.root.insertAdjacentHTML(
       'afterbegin',
       `<div class = voting-block__title>${title}</div>`
