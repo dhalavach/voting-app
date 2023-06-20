@@ -27,6 +27,13 @@ app.get('/stat', async (req, res) => {
   res.end();
 });
 
+app.get('/main', async (req, res) => {
+  const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
+  res.sendFile(path.join(__dirname, 'index.html'));
+
+  res.end();
+});
+
 app.get('/vote', async (req, res) => {
   const data = JSON.parse(await fs.readFile(dataFile, 'utf-8'));
   const totalVotes = Object.values(data).reduce((prev, curr) => prev + curr, 0);
@@ -47,4 +54,4 @@ app.post('/vote', async (req, res) => {
   res.end();
 });
 
-app.listen(3000, () => console.log('server running...'));
+app.listen(7480, () => console.log('server running...'));
