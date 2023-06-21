@@ -5,7 +5,8 @@ class VotingBlock {
   constructor(root, title) {
     this.root = root;
     this.selected = sessionStorage.getItem('selected');
-    this.endpoint = `http://${IP_DIGITAL_OCEAN}:${PORT}/vote`;
+    // this.endpoint = `http://${IP_DIGITAL_OCEAN}:${PORT}/vote`;
+    this.endpoint = 'http://localhost:7481/vote';
     this.root.insertAdjacentHTML(
       'afterbegin',
       `<div class = voting-block__title>${title}</div>`
